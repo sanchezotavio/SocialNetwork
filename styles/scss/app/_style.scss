@@ -1,0 +1,202 @@
+@import 'variables.scss';
+
+/* _ _ Reset HTML _ _  */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+/* _ _ Configurações _ _ */
+
+body {
+    font-family: $fon
+}
+
+
+/* _ _ Estrutura _ _ */
+
+.container {
+    @extend .center;
+    @extend .display-flex;
+    max-width: $max-width-container;
+    min-width: $min-width-container;
+}
+
+@media (max-width: $width-desktop) {
+    .container {
+        width: 94%;
+    }
+}
+
+@media (max-width: $width-tablet) {
+    .container {
+        width: 96%;
+    }
+}
+
+@media (max-width: $width-mobile) {
+    .container {
+        width: 98%;
+    }
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+
+@mixin order($values) {
+    -webkit-box-ordinal-group: $values;
+    -moz-box-ordinal-group: $values;
+    -ms-flex-order: $values;
+    -webkit-order: $values;
+    order: $values;
+}
+
+@mixin flex-grow($value: 0) {
+    -webkit-box-flex: $value;
+    -webkit-flex-grow: $value;
+    -moz-flex-grow: $value;
+    -ms-flex-positive: $value;
+    flex-grow: $value;
+}
+
+@media (min-width: $width-desktop) {
+    @for $i from 1 through $max-col {
+        .col-des-#{$i} {
+            @include flex($i);
+        }
+    }
+}
+
+@media (min-width: $width-tablet) {
+    @for $i from 1 through $max-col {
+        .col-tab-#{$i} {
+            @include flex($i);
+        }
+    }
+}
+
+@media (min-width: $width-mobile) {
+    @for $i from 1 through $max-col {
+        .col-mob-#{$i} {
+            @include flex($i);
+        }
+    }
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.display-flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
