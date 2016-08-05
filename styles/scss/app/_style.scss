@@ -1,116 +1,9 @@
-@import 'variables.scss';
-
-/* _ _ Reset HTML _ _  */
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-
-
 /* _ _ Configurações _ _ */
 
 body {
     font-family: $font-primary;
     color: $color-font;
+    background-color: $color-body;
 }
 
 
@@ -165,10 +58,22 @@ body {
     flex-grow: $value;
 }
 
+@mixin flex-flow($value) {
+    -webkit-flex-flow: $value;
+    -moz-flex-flow: $value;
+    -ms-flex-flow: $value;
+    -o-flex-flow: $value;
+    flex-flow: $value;
+}
+
 @media (min-width: $width-desktop) {
     @for $i from 1 through $max-col {
         .col-des-#{$i} {
             @include flex($i);
+            @if($max-col==$i) {
+                width: 100%;
+                @include flex-flow(column wrap);
+            }
         }
     }
 }
@@ -177,6 +82,10 @@ body {
     @for $i from 1 through $max-col {
         .col-tab-#{$i} {
             @include flex($i);
+            @if($max-col==$i) {
+                width: 100%;
+                @include flex-flow(column wrap);
+            }
         }
     }
 }
@@ -185,13 +94,21 @@ body {
     @for $i from 1 through $max-col {
         .col-mob-#{$i} {
             @include flex($i);
+            @if($max-col==$i) {
+                width: 100%;
+                @include flex-flow(column wrap);
+            }
         }
     }
 }
 
-.center {
-    margin-left: auto;
-    margin-right: auto;
+@for $i from 1 through $max-col {
+    .order-#{$i} {
+        @include flex($i);
+        @if($max-col==$i) {
+            @include order($i);
+        }
+    }
 }
 
 .display-flex {
@@ -206,14 +123,53 @@ body {
     }
 }
 
+.title {
+    font-family: $font-title;
+    color: $color-title;
+    display: block;
+    &--main {
+        @extend .title;
+        font-size: 180%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
 .header {
     width: 100%;
     display: inline-block;
     &--default {
+        @extend .header;
+        display: block;
+        width: 100%;
         padding-top: 10px;
         padding-bottom: 10px;
         background-color: $color-header;
     }
+}
+
+.box {
+    border: 1px solid $color-border-box;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 2px;
+    &--new {
+        @extend .box;
+        width: calc(100% - 24px);
+    }
+}
+
+.form {}
+
+.text_box {
+    padding: 5px;
+    border: 1px solid $color-border-box;
+    font-size: 100%;
+    min-width: 120px;
+}
+
+.text_box:focus {
+    border-color: $color-primary;
 }
 
 .menu {
@@ -245,6 +201,30 @@ body {
     }
 }
 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .align_right {
     text-align: right;
+}
+
+.align_left {
+    text-align: left;
+}
+
+.align_center {
+    text-align: center;
+}
+
+
+/* _ _ angularjs _ _ */
+
+input.ng-invalid.ng-touched {
+    border-color: #BF1B1B;
+}
+
+input.ng-valid.ng-touched {
+    border-color: #1FBF57;
 }

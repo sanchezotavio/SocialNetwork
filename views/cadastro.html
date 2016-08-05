@@ -1,3 +1,41 @@
 <div class="container">
-    <h1> cadastro </h1>
+    <div class="box--new">
+
+        <h1 class="title--main"> Cadastro </h1>
+
+        <form class="form" name="cadastroUsuario" ng-submit="save()" novalidate>
+            <div>
+                <div>Email</div>
+                <div>
+                    <input type="email" name="email" ng-model="email" ng-pattern="emailFormat" class="text_box" required/>
+                </div>
+                <div ng-show="cadastroUsuario.email.$dirty && cadastroUsuario.email.$invalid">
+                    <div ng-show="cadastroUsuario.email.$error.required">Digite o seu email.</div>
+                    <div ng-show="cadastroUsuario.email.$error.email">Email inválido.</div>
+                </div>
+            </div>
+            <div>
+                <div class="">Usuário</div>
+                <div>
+                    <input type="text" name="usuario" ng-model="usuario" class="text_box" required/>
+                </div>
+            </div>
+            <div>
+                <div class="">Senha</div>
+                <div>
+                    <input type="text" name="senha" ng-model="senha" class="text_box" required/>
+                </div>
+            </div>
+            <div>
+                <div class="">Confirme sua senha</div>
+                <div>
+                    <input type="text" name="confSenha" ng-model="confSenha" class="text_box" required/>
+                </div>
+            </div>
+            <div>
+                <input type="submit" id="submit" value="Cadastrar" />
+            </div>
+        </form>
+
+    </div>
 </div>
