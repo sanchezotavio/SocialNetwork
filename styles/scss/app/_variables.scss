@@ -1,21 +1,30 @@
 /* - - Fontes - - */
+
 $font-primary: 'Arial';
 $font-title: 'Arial';
 
 /* - - Cores - - */
-$color-primary: #0099ff;
+
+$color-primary: #D46DEA;
 $color-font: #333333;
 $color-box: #dddddd;
+$color-header: #333333;
+$color-light: #eeeeee;
 
 /* - - Estrutura - - */
+
+
 /*Máximo de colunas*/
+
 $max-col: 10;
 
 /* Width Dispositivos*/
+
 $width-desktop: 1200px;
 $width-tablet: 992px;
 $width-mobile: 778px;
 
 /*Width do container*/
+
 $max-width-container: 1280px;
 $min-width-container: 120px;

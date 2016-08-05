@@ -109,7 +109,8 @@ section {
 /* _ _ Configurações _ _ */
 
 body {
-    font-family: $fon
+    font-family: $font-primary;
+    color: $color-font;
 }
 
 
@@ -199,4 +200,51 @@ body {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    &--center {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.header {
+    width: 100%;
+    display: inline-block;
+    &--default {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: $color-header;
+    }
+}
+
+.menu {
+    list-style: none;
+}
+
+.item {
+    &--horizontal {
+        display: inline-block
+    }
+    &__link {
+        color: $color-light;
+        text-decoration: none;
+        padding: 10px;
+    }
+    &__link:hover {
+        text-decoration: underline;
+    }
+}
+
+.logo {
+    text-align: left;
+    &__link {
+        color: $color-primary;
+        text-decoration: none;
+    }
+    &__title {
+        font-size: 200%;
+    }
+}
+
+.align_right {
+    text-align: right;
 }
