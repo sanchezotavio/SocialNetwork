@@ -7,7 +7,7 @@
             <div>
                 <div>Email</div>
                 <div>
-                    <input type="email" name="email" ng-model="email" ng-pattern="emailFormat" class="text_box" required/>
+                    <input type="email" name="email" ng-model="email" ng-pattern="emailFormat" class="text_box" email required/>
                 </div>
                 <div ng-show="cadastroUsuario.email.$dirty && cadastroUsuario.email.$invalid">
                     <div ng-show="cadastroUsuario.email.$error.required">Digite o seu email.</div>
@@ -17,7 +17,12 @@
             <div>
                 <div class="">Usuário</div>
                 <div>
-                    <input type="text" name="usuario" ng-model="usuario" class="text_box" required/>
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="usuario" ng-model="usuario" class="text_box" usuario required/>
+                    <div ng-show="cadastroUsuario.usuario.$dirty && cadastroUsuario.usuario.$invalid">
+                        <div ng-show="cadastroUsuario.usuario.$error.required">Digite o seu usuário.</div>                        
+                    </div>
+                    <div ng-show="cadastroUsuario.usuario.$pending.usuario">Verificando disponibilidades.</div>
+                    <div ng-show="cadastroUsuario.usuario.$error.usuario">Usuário em uso.</div>
                 </div>
             </div>
             <div>
