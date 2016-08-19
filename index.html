@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-language" content="pt-br" />
-    <title>Social Network Gamer</title>
+    <title ng-bind="title"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" rel="stylesheet" href="styles/css/main.css">
@@ -38,7 +38,7 @@
 
     <footer>
         <div class="container">
-            Social Network Gamer
+           <div ng-bind="footer"></div>
         </div>
     </footer>
 
@@ -49,7 +49,8 @@
     <script src="app/controllers/CadastroController.js"></script>
     <script src="app/controllers/HomeController.js"></script>
     <script src="app/controllers/UsuarioController.js"></script>
-    <script src="app/directives/usuario.js"></script>
-
+    <script src="app/directives/ValidaUsuario.js"></script>
+    <script src="app/directives/ValidaSenha.js"></script>
+    
 </body>
 </html>

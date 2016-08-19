@@ -17,7 +17,7 @@
             <div>
                 <div class="">Usuário</div>
                 <div>
-                    <input ng-minlength="3" ng-maxlength="18" type="text" name="usuario" ng-model="usuario" class="text_box" usuario required/>
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="usuario" ng-model="usuario" class="text_box" ValidaUsuario required/>
                     <div ng-show="cadastroUsuario.usuario.$dirty && cadastroUsuario.usuario.$invalid">
                         <div ng-show="cadastroUsuario.usuario.$error.required">Digite o seu usuário.</div>                        
                     </div>
@@ -28,14 +28,27 @@
             <div>
                 <div class="">Senha</div>
                 <div>
-                    <input type="text" name="senha" ng-model="senha" class="text_box" required/>
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="senha" ng-model="senha" class="text_box" ValidaSenha required/>
+                    <div ng-show=" cadastroUsuario.senha.$invalid">
+                        <div ng-show="cadastroUsuario.senha.$error.required">Digite sua senha.</div>                        
+                    </div>
                 </div>
+                
+                 <span class="msg-error" ng-show="cadastroUsuario.senha.$error.senhaValida">
+    Passwords don't match.
+  </span>
             </div>
             <div>
                 <div class="">Confirme sua senha</div>
                 <div>
-                    <input type="text" name="confSenha" ng-model="confSenha" class="text_box" required/>
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="confSenha" ng-model="confSenha" class="text_box" ValidaSenha required/>
+                     <div ng-show=" cadastroUsuario.senha.$invalid">
+                        <div ng-show="cadastroUsuario.confSenha.$error.required">Confirme sua senha.</div>                        
+                    </div>
                 </div>
+            </div>
+            <div>
+                <div class="">Termos de uso</div>              
             </div>
             <div>
                 <input type="submit" id="submit" value="Cadastrar" />
