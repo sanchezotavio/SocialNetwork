@@ -16,13 +16,13 @@ body {
     min-width: $min-width-container;
 }
 
-@media (max-width: $width-desktop) {
+@media (max-width: $width-desktop) and (min-width: $width-tablet) {
     .container {
         width: 94%;
     }
 }
 
-@media (max-width: $width-tablet) {
+@media (max-width: $width-tablet)  and (min-width: $width-mobile) {
     .container {
         width: 96%;
     }
@@ -69,35 +69,26 @@ body {
 @media (min-width: $width-desktop) {
     @for $i from 1 through $max-col {
         .col-des-#{$i} {
-            @include flex($i);
-            @if($max-col==$i) {
-                width: 100%;
-                @include flex-flow(column wrap);
-            }
+            @include flex($i);          
+            @include flex-flow(column wrap);            
         }
     }
 }
 
-@media (min-width: $width-tablet) {
+@media (min-width: $width-tablet) and (max-width: $width-desktop) {
     @for $i from 1 through $max-col {
         .col-tab-#{$i} {
-            @include flex($i);
-            @if($max-col==$i) {
-                width: 100%;
-                @include flex-flow(column wrap);
-            }
+            @include flex($i);           
+            @include flex-flow(column wrap);
         }
     }
 }
 
-@media (min-width: $width-mobile) {
+@media (min-width: $width-mobile) and (max-width: $width-tablet) {
     @for $i from 1 through $max-col {
         .col-mob-#{$i} {
             @include flex($i);
-            @if($max-col==$i) {
-                width: 100%;
-                @include flex-flow(column wrap);
-            }
+            @include flex-flow(column wrap);            
         }
     }
 }
@@ -131,7 +122,7 @@ body {
         @extend .title;
         font-size: 180%;
         margin-top: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 }
 
@@ -159,7 +150,40 @@ body {
     }
 }
 
-.form {}
+.form {
+
+    &__item{
+        padding-bottom: 20px;
+    }
+
+    &__label{
+        font-size: 90%;        
+    }
+}
+
+.button{
+
+    &__next{
+        padding: 10px 30px 10px 30px;
+        color: $color-light;
+        background-color: $color-primary;
+        font-size: 100%;
+        border: 0;
+    }
+
+    &__next:disabled{
+        opacity: 0.6;
+    }
+}
+
+.error{
+    color:$color-error;
+    font-size: 90%;
+    .msg{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
 
 .text_box {
     padding: 5px;
@@ -222,7 +246,7 @@ body {
 /* _ _ angularjs _ _ */
 
 input.ng-invalid.ng-touched {
-    border-color: #BF1B1B;
+    border-color: $color-error;
 }
 
 input.ng-valid.ng-touched {

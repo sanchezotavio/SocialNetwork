@@ -37,7 +37,7 @@ gulp.task('default', ['sass', 'minify-css', 'imagemin'], function() {
         gulp.run('imagemin');
     });
 
-    gulp.watch('styles/scss/*.scss', function() {
+    gulp.watch('styles/scss/app/*.scss', function() {
         gulp.run('sass');
     });
 

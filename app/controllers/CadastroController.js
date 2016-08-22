@@ -1,6 +1,11 @@
 app.controller('CadastroController', function($rootScope, $location) {
 
     $rootScope.activetab = $location.path();
-    $rootScope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+
+     $rootScope.novoUsuario = [];
+
+    $rootScope.save = function(){       
+           $rootScope.novoUsuario.push({"nome": $rootScope.nome , "usuario" : $rootScope.usuario , "senha" : $rootScope.senha});        
+    }
 
 })
