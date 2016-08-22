@@ -5,7 +5,7 @@ app.controller('CadastroController', function($rootScope, $location) {
      $rootScope.novoUsuario = [];
 
     $rootScope.save = function(){       
-           $rootScope.novoUsuario.push({'email': $rootScope.email , 'usuario' : $rootScope.usuario , 'senha' : $rootScope.senha});        
+           $rootScope.novoUsuario.push({"nome": $rootScope.nome , "usuario" : $rootScope.usuario , "senha" : $rootScope.senha});        
     }
 
 })
