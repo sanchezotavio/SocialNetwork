@@ -1,11 +1,15 @@
-app.controller('CadastroController', function($rootScope, $location) {
+app.controller('CadastroController', function ($rootScope, $location) {
 
     $rootScope.activetab = $location.path();
 
-     $rootScope.novoUsuario = [];
+    $rootScope.novoUsuario;
 
-    $rootScope.save = function(){       
-           $rootScope.novoUsuario.push({"nome": $rootScope.nome , "usuario" : $rootScope.usuario , "senha" : $rootScope.senha});        
+    $rootScope.save = function () {
+        $rootScope.novoUsuario = {
+            "nome": $rootScope.nome,
+            "usuario": $rootScope.usuario,
+            "senha": $rootScope.senha
+        };
     }
 
 })
