@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngRoute']);
 
-var nomeProjeto = "Social Network Gamer"
+var nomeProjeto = "Social Network"
 
 app.config(function($routeProvider, $locationProvider) {
 
