@@ -33,14 +33,14 @@
             <div class="form__item">
                 <div class="">Senha</div>
                 <div>
-                    <input ng-minlength="3" ng-maxlength="18" type="text" name="senha" ng-model="senha" class="text_box" ng-required="true" />
+                    <input ng-minlength="3"  ng-maxlength="18" type="password" name="senha" ng-model="senha" class="text_box" ng-required="true" />
                     <span ng-show="cadastroUsuario.senha.$error.required" class="error msg">*</span>                
                 </div>
             </div>
             <div class="form__item">
                 <div class="">Confirme sua senha</div>
                 <div>
-                    <input ng-minlength="3" ng-maxlength="18" type="text" name="confSenha" ng-model="confSenha" class="text_box" ValidaSenha ng-required="true" />
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="confSenha" ng-model="confSenha" class="text_box"  ng-required="true" />
                     <span ng-show="cadastroUsuario.confSenha.$error.required" class="error msg">*</span>                
                 </div>
             </div>
