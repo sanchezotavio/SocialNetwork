@@ -13,7 +13,7 @@
                 <div class="error msg" ng-show="cadastroUsuario.email.$pending">Verificando disponibilidades.</div>
                 <div ng-show="cadastroUsuario.email.$dirty && cadastroUsuario.email.$invalid">                   
                     <div ng-show="cadastroUsuario.email.$error.email" class="error msg">Email inválido.</div>
-                    <div class="error msg" ng-show="cadastroUsuario.email.$error.validaemail">Email em uso.</div>
+                    <div class="error msg" ng-show="cadastroUsuario.email.$invalid.validaemail">Email em uso.</div>
                 </div>
             </div>
             <div class="form__item">
@@ -26,6 +26,7 @@
                     <div class="error msg" ng-show="cadastroUsuario.usuario.$pending">Verificando disponibilidades.</div>
                     <div ng-show="cadastroUsuario.usuario.$invalid && cadastroUsuario.usuario.$dirty">
                         <div class="error msg" ng-show="cadastroUsuario.usuario.$error.validausuario">Usuário em uso.</div>
+                        <div class="error msg" ng-show="cadastroUsuario.usuario.$error.min || cadastroUsuario.usuario.$error.max">Min 3. Max 18.</div>
                     </div>
                 </div>
             </div>
