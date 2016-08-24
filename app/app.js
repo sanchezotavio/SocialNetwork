@@ -41,3 +41,4 @@ app.run(['$rootScope', function($rootScope) {
         $rootScope.footer = nomeProjeto;
     });
 }]);
+

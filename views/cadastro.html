@@ -4,52 +4,51 @@
         <h1 class="title--main"> Cadastro </h1>
 
         <form class="form" name="cadastroUsuario" ng-submit="save()" novalidate>
-            <div class="form__item"> 
+            <div class="form__item">
                 <div>Email</div>
                 <div>
-                    <input type="email" name="email" ng-model="email"  class="text_box" email ng-required="true"/>
+                    <input type="email" name="email" ng-model="email" class="text_box" validaemail ng-required="true" />
+                    <span ng-show="cadastroUsuario.email.$error.required" class="error msg">*</span>
                 </div>
-                <div ng-show="cadastroUsuario.email.$dirty && cadastroUsuario.email.$invalid">
-                    <div ng-show="cadastroUsuario.email.$error.required" class="error msg">Digite o seu email.</div>
+                <div class="error msg" ng-show="cadastroUsuario.email.$pending">Verificando disponibilidades.</div>
+                <div ng-show="cadastroUsuario.email.$dirty && cadastroUsuario.email.$invalid">                   
                     <div ng-show="cadastroUsuario.email.$error.email" class="error msg">Email inválido.</div>
+                    <div class="error msg" ng-show="cadastroUsuario.email.$error.validaemail">Email em uso.</div>
                 </div>
             </div>
             <div class="form__item">
                 <div class="">Usuário</div>
                 <div>
-                    <input ng-minlength="3" ng-maxlength="18" type="text" name="usuario" ng-model="usuario" class="text_box" ValidaUsuario ng-required="true"/>
-                    <div ng-show="cadastroUsuario.usuario.$ivalid">
-                        <div ng-show="cadastroUsuario.usuario.$error.required" class="error msg">Digite o seu usuário.</div>
+                    <div>
+                        <input ng-minlength="3" ng-maxlength="18" type="text" name="usuario" ng-model="usuario" class="text_box" validausuario ng-required="true" />
+                        <span ng-show="cadastroUsuario.usuario.$error.required" class="error msg">*</span>
                     </div>
-                    <div ng-show="cadastroUsuario.usuario.$pending.usuario" class="error msg">Verificando disponibilidades.</div>
-                    <div ng-show="cadastroUsuario.usuario.$error.usuario" class="error msg">Usuário em uso.</div>
+                    <div class="error msg" ng-show="cadastroUsuario.usuario.$pending">Verificando disponibilidades.</div>
+                    <div ng-show="cadastroUsuario.usuario.$invalid && cadastroUsuario.usuario.$dirty">
+                        <div class="error msg" ng-show="cadastroUsuario.usuario.$error.validausuario">Usuário em uso.</div>
+                    </div>
                 </div>
             </div>
             <div class="form__item">
                 <div class="">Senha</div>
                 <div>
-                    <input ng-minlength="3" ng-maxlength="18" type="text" name="senha" ng-model="senha" class="text_box" ng-required="true"/>
-                    <div ng-show="cadastroUsuario.senha.$dirty">
-                        <div ng-show="cadastroUsuario.senha.$error.required" class="error msg">Digite sua senha.</div>
-                    </div>
-                </div>               
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="senha" ng-model="senha" class="text_box" ng-required="true" />
+                    <span ng-show="cadastroUsuario.senha.$error.required" class="error msg">*</span>                
+                </div>
             </div>
             <div class="form__item">
                 <div class="">Confirme sua senha</div>
                 <div>
-                    <input ng-minlength="3" ng-maxlength="18" type="text" name="confSenha" ng-model="confSenha" class="text_box" ValidaSenha ng-required="true"/>
-                    <div ng-show="cadastroUsuario.senha.$dirty">
-                        <div ng-show="cadastroUsuario.confSenha.$error.required" class="error msg">Confirme sua senha.</div>
-                    </div>
+                    <input ng-minlength="3" ng-maxlength="18" type="text" name="confSenha" ng-model="confSenha" class="text_box" ValidaSenha ng-required="true" />
+                    <span ng-show="cadastroUsuario.confSenha.$error.required" class="error msg">*</span>                
                 </div>
             </div>
             <div class="form__item">
-                <div class=""><input type="checkbox" name="termos" ng-model="termos" ng-required="true" /> Termos de uso</div>
+                <div class=""><input type="checkbox" name="termos" ng-model="termos" ng-required="true" />Termos de uso <span ng-show="cadastroUsuario.termos.$invalid" class="error msg">*</span> </div>
             </div>
             <div class="form__item">
-                <input type="submit" class="button button__next" id="submit" ng-disabled="cadastroUsuario.email.$invalid || cadastroUsuario.usuario.$invalid || cadastroUsuario.senha.$invalid || cadastroUsuario.confSenha.$invalid || cadastroUsuario.termos.$invalid" value="Cadastrar" />
+                <input type="submit" class="button button__next" id="submit" ng-disabled="cadastroUsuario.$invalid" value="Cadastrar" />
             </div>
-            {{novoUsuario}}
         </form>
 
     </div>

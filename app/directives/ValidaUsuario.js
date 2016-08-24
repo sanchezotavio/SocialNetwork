@@ -1,15 +1,15 @@
-app.directive(['ValidaUsuario', function($q, $timeout) {
+app.directive('validausuario', function($q, $timeout) {
   return {
     require: 'ngModel',
     link: function(scope, elm, attrs, ctrl) {
       var usuarios = ['otavio'];
 
-      ctrl.$asyncValidators.ValidaUsuario = function(modelValue, viewValue) {
+      ctrl.$asyncValidators.username = function(modelValue, viewValue) {
 
         if (ctrl.$isEmpty(modelValue)) {
           return $q.when();
         }
-             
+
         var def = $q.defer();
 
         $timeout(function() {
@@ -20,10 +20,10 @@ app.directive(['ValidaUsuario', function($q, $timeout) {
           }
 
         }, 2000);
-       
+          
         return def.promise;
+        
       };
     }
   };
-}]);
-
+});
